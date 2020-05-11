@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/RPGpack_sheet_2X.png" type="Texture" id=1]
+[ext_resource path="res://ui/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/DynamicFont_Luckiest30.tres" type="DynamicFont" id=4]
+[ext_resource path="res://screens/Credits.gd" type="Script" id=5]
+
+[sub_resource type="TileSet" id=1]
+0/name = "RPGpack_sheet_2X.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 1920, 384 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 10, 0 )
+0/autotile/tile_size = Vector2( 128, 128 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+size = 50
+outline_size = 3
+outline_color = Color( 0.0941176, 0.415686, 0.129412, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="TileMap" parent="Background"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 131075, 1, 0, 131075, 2, 0, 131075, 3, 0, 131075, 4, 0, 131075, 5, 0, 131075, 6, 0, 131075, 7, 0, 131076, 65536, 0, 131076, 65537, 0, 131075, 65538, 0, 131075, 65539, 0, 131075, 65540, 0, 131075, 65541, 0, 131076, 65542, 0, 131075, 65543, 0, 131075, 196607, 0, 131086, 131072, 0, 131075, 131073, 0, 131075, 131074, 0, 131076, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 131075, 131079, 0, 131075, 196608, 0, 131075, 196609, 0, 131076, 196610, 0, 131075, 196611, 0, 131075, 196612, 0, 131075, 196613, 0, 131075, 196614, 0, 131075, 196615, 0, 131075, 262144, 0, 131075, 262145, 0, 131075, 262146, 0, 131075, 262147, 0, 131076, 262148, 0, 131075, 262149, 0, 131076, 262150, 0, 131075, 262151, 0, 131075 )
+
+[node name="TextContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = -100.0
+margin_bottom = -200.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextContainer"]
+margin_right = 824.0
+margin_bottom = 390.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+bbcode_enabled = true
+bbcode_text = "
+A game by [rainbow freq=0.5 sat=.11][wave][url]dilettante54.itch.io[/url][/wave][/rainbow]
+
+
+background tiles:    [url]kenney.nl[/url]
+foods:     		  [url]vectorpixelstar.itch.io[/url]
+portals: 		    [url]elthen.itch.io[/url]
+additional tiles:	 [url]pipoya.itch.io[/url]"
+meta_underlined = false
+text = "
+A game by dilettante54.itch.io
+
+
+background tiles:    kenney.nl
+foods:     		  vectorpixelstar.itch.io
+portals: 		    elthen.itch.io
+additional tiles:	 pipoya.itch.io"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer2"]
+margin_right = 1024.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="MarginContainer2/CenterContainer" instance=ExtResource( 2 )]
+margin_left = 411.0
+margin_top = 46.0
+margin_right = 613.0
+margin_bottom = 103.0
+custom_fonts/font = SubResource( 2 )
+text = "Go back"
+target_scene_path = "res://screens/Menu.tscn"
+[connection signal="meta_clicked" from="TextContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]

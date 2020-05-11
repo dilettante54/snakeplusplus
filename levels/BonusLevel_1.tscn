@@ -1,0 +1,228 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://levels/Main.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/BonusLevel_1.gd" type="Script" id=2]
+[ext_resource path="res://objects/Obstacle_Tile.tres" type="TileSet" id=3]
+[ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Food.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Pickup.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 402.782, 11.4448 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 368.573, 11.4448 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 180.423, 11.5623 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 5.40749, 127.079 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0941176, 0.54902, 0.337255, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.270588, 0, 0.752941, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 2
+shadow_offset = Vector2( 4, 4 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.388235, 0.52549, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.580392, 0, 0.721569, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color( 0, 0, 0, 0.513726 )
+shadow_size = 1
+shadow_offset = Vector2( 4, 4 )
+
+[sub_resource type="DynamicFontData" id=8]
+hinting = 0
+font_path = "res://fonts/LuckiestGuy-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 18
+outline_color = Color( 0.0941176, 0.415686, 0.129412, 1 )
+use_filter = true
+extra_spacing_top = 5
+font_data = SubResource( 8 )
+
+[sub_resource type="Theme" id=14]
+resource_local_to_scene = true
+default_font = SubResource( 9 )
+Button/colors/font_color = Color( 0.988235, 0.0705882, 0.0705882, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.615686, 0.243137, 0.243137, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = null
+Label/colors/font_color = Color( 0.952941, 0.0941176, 0.0941176, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = SubResource( 5 )
+PopupDialog/styles/panel = SubResource( 6 )
+WindowDialog/colors/title_color = Color( 0.603922, 0.937255, 0.686275, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 18
+WindowDialog/constants/scaleborder_size = 4
+WindowDialog/constants/title_height = 20
+WindowDialog/fonts/title_font = null
+WindowDialog/icons/close = null
+WindowDialog/icons/close_highlight = null
+WindowDialog/styles/panel = SubResource( 7 )
+
+[node name="Main" instance=ExtResource( 1 )]
+position = Vector2( -1, 0 )
+script = ExtResource( 2 )
+level_type = 1
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 524291, 0, 2, 524292, 0, 65536, 524293, 0, 65536, 524294, 0, 65536, 524295, 0, 65536, 524296, 0, 65536, 524297, 0, 65536, 524298, 0, 65536, 524299, 0, 65536, 524300, 0, 65536, 524301, 0, 65536, 524302, 0, 4, 524305, 0, 65540, 524306, 0, 65536, 524307, 0, 65536, 524308, 0, 65536, 524309, 0, 65536, 524310, 0, 65536, 524311, 0, 65536, 524312, 0, 65536, 524313, 0, 65536, 524314, 0, 65536, 524315, 0, 65536, 524316, 0, 3, 589827, 0, 0, 589852, 0, 0, 655363, 0, 0, 655365, 0, 65540, 655366, 0, 65536, 655367, 0, 65536, 655368, 0, 65536, 655369, 0, 65536, 655370, 0, 65536, 655371, 0, 65536, 655372, 0, 65536, 655373, 0, 65536, 655374, 0, 65536, 655375, 0, 65536, 655376, 0, 65536, 655377, 0, 65536, 655378, 0, 65536, 655379, 0, 65536, 655380, 0, 65536, 655381, 0, 65536, 655382, 0, 65536, 655383, 0, 65536, 655384, 0, 65536, 655385, 0, 65536, 655386, 0, 65536, 655387, 0, 65536, 655388, 0, 65542, 720899, 0, 0, 720924, 0, 0, 786435, 0, 65541, 786436, 0, 65536, 786437, 0, 65536, 786438, 0, 65536, 786439, 0, 65536, 786440, 0, 65536, 786441, 0, 65536, 786442, 0, 65536, 786443, 0, 65536, 786444, 0, 65536, 786445, 0, 65536, 786446, 0, 65536, 786447, 0, 65536, 786448, 0, 65536, 786449, 0, 65536, 786450, 0, 65536, 786451, 0, 65536, 786452, 0, 65536, 786453, 0, 65536, 786454, 0, 65536, 786455, 0, 65536, 786456, 0, 65536, 786457, 0, 65536, 786458, 0, 4, 786460, 0, 0, 851971, 0, 0, 851996, 0, 0, 917507, 0, 0, 917509, 0, 65540, 917510, 0, 65536, 917511, 0, 65536, 917512, 0, 65536, 917513, 0, 65536, 917514, 0, 65536, 917515, 0, 65536, 917516, 0, 65536, 917517, 0, 65536, 917518, 0, 65536, 917519, 0, 65536, 917520, 0, 65536, 917521, 0, 65536, 917522, 0, 65536, 917523, 0, 65536, 917524, 0, 65536, 917525, 0, 65536, 917526, 0, 65536, 917527, 0, 65536, 917528, 0, 65536, 917529, 0, 65536, 917530, 0, 65536, 917531, 0, 65536, 917532, 0, 65542, 983043, 0, 0, 983068, 0, 0, 1048579, 0, 65538, 1048580, 0, 65536, 1048581, 0, 65536, 1048582, 0, 65536, 1048583, 0, 65536, 1048584, 0, 65536, 1048585, 0, 65536, 1048586, 0, 65536, 1048587, 0, 65536, 1048588, 0, 65536, 1048589, 0, 65536, 1048590, 0, 65536, 1048591, 0, 65536, 1048592, 0, 65536, 1048593, 0, 65536, 1048594, 0, 65536, 1048595, 0, 65536, 1048596, 0, 65536, 1048597, 0, 65536, 1048598, 0, 65536, 1048599, 0, 65536, 1048600, 0, 65536, 1048601, 0, 65536, 1048602, 0, 65536, 1048603, 0, 65536, 1048604, 0, 65539 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" index="4" groups=[
+"Walls",
+]]
+position = Vector2( 513.138, 527.799 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" index="5" groups=[
+"Walls",
+]]
+position = Vector2( 539.017, 464.268 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" index="6" groups=[
+"Walls",
+]]
+position = Vector2( 485.445, 400.736 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" index="7" groups=[
+"Walls",
+]]
+position = Vector2( 538.388, 336.576 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls" index="8" groups=[
+"Walls",
+]]
+position = Vector2( 734.941, 272.16 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls" index="9" groups=[
+"Walls",
+]]
+position = Vector2( 289.149, 272.673 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls" index="10" groups=[
+"Walls",
+]]
+position = Vector2( 111.616, 400.102 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls" index="11" groups=[
+"Walls",
+]]
+position = Vector2( 911.401, 399.102 )
+shape = SubResource( 13 )
+
+[node name="Snake" parent="." index="4"]
+position = Vector2( 513.648, 496.348 )
+
+[node name="Food" parent="Food" index="0" instance=ExtResource( 5 )]
+position = Vector2( 404.284, 495.947 )
+is_fixed = true
+
+[node name="Food3" parent="Food" index="1" instance=ExtResource( 5 )]
+position = Vector2( 238.779, 495.947 )
+is_fixed = true
+
+[node name="Food7" parent="Food" index="2" instance=ExtResource( 5 )]
+position = Vector2( 321.88, 431.7 )
+is_fixed = true
+
+[node name="Food11" parent="Food" index="3" instance=ExtResource( 5 )]
+position = Vector2( 650.987, 431.7 )
+is_fixed = true
+
+[node name="Food9" parent="Food" index="4" instance=ExtResource( 5 )]
+position = Vector2( 489.481, 431.7 )
+is_fixed = true
+
+[node name="Food13" parent="Food" index="5" instance=ExtResource( 5 )]
+position = Vector2( 807.017, 431.7 )
+is_fixed = true
+
+[node name="Food24" parent="Food" index="6" instance=ExtResource( 5 )]
+position = Vector2( 404.284, 367.7 )
+is_fixed = true
+
+[node name="Food22" parent="Food" index="7" instance=ExtResource( 5 )]
+position = Vector2( 235.779, 368.002 )
+is_fixed = true
+
+[node name="Food20" parent="Food" index="8" instance=ExtResource( 5 )]
+position = Vector2( 569.583, 367.7 )
+is_fixed = true
+
+[node name="Food18" parent="Food" index="9" instance=ExtResource( 5 )]
+position = Vector2( 884.421, 367.7 )
+is_fixed = true
+
+[node name="Food16" parent="Food" index="10" instance=ExtResource( 5 )]
+position = Vector2( 726.915, 367.7 )
+is_fixed = true
+
+[node name="Food5" parent="Food" index="11" instance=ExtResource( 5 )]
+position = Vector2( 150.503, 433.192 )
+is_fixed = true
+
+[node name="QuitPopup" parent="." index="11"]
+theme = SubResource( 14 )
+
+[node name="Portal" parent="." index="12" instance=ExtResource( 4 )]
+visible = true
+position = Vector2( 512.323, 189.78 )
+is_fixed = true
+
+[node name="Pickup" parent="." index="13" instance=ExtResource( 6 )]
+position = Vector2( 193.439, 315.648 )
+is_fixed = true
+pickup_effect = 0
+
+[node name="Pickup2" parent="." index="14" instance=ExtResource( 6 )]
+position = Vector2( 282.128, 315.648 )
+is_fixed = true
+pickup_effect = 0

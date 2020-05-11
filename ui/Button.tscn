@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/Button.gd" type="Script" id=1]
+[ext_resource path="res://fonts/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 50
+outline_size = 3
+outline_color = Color( 0.0941176, 0.415686, 0.129412, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Button" type="Button"]
+margin_right = 355.0
+margin_bottom = 57.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.709804, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 1, 0, 1 )
+enabled_focus_mode = 0
+text = "Button Label"
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="." to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

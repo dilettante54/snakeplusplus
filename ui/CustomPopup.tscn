@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://ui/CustomPopup.gd" type="Script" id=2]
+[ext_resource path="res://ui/ButtonYes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/ButtonNo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.27451, 0.768627, 0.207843, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.38, 0, 0.59, 1 )
+shadow_size = 2
+shadow_offset = Vector2( 4, 4 )
+
+[sub_resource type="DynamicFontData" id=2]
+hinting = 0
+font_path = "res://fonts/LuckiestGuy-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 2
+outline_color = Color( 0.0117647, 0.376471, 0.180392, 1 )
+use_filter = true
+extra_spacing_top = 5
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+outline_size = 1
+outline_color = Color( 0.0117647, 0.376471, 0.180392, 1 )
+use_filter = true
+extra_spacing_top = 5
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+resource_local_to_scene = true
+size = 20
+outline_size = 2
+outline_color = Color( 0.0941176, 0.415686, 0.129412, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+resource_local_to_scene = true
+size = 20
+outline_size = 2
+outline_color = Color( 0.0941176, 0.415686, 0.129412, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="PopupDialog" type="PopupDialog"]
+pause_mode = 2
+margin_right = 203.0
+margin_bottom = 111.0
+custom_styles/panel = SubResource( 1 )
+popup_exclusive = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 9.58188
+margin_bottom = 45.5819
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.709804, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Quit game?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 41.5959
+margin_bottom = 77.5959
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.709804, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" parent="." instance=ExtResource( 3 )]
+anchor_right = 1.0
+margin_top = 75.0
+margin_right = -100.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 5 )
+
+[node name="No" parent="." instance=ExtResource( 4 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.418
+margin_top = 75.0
+margin_right = 0.418091
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 6 )
+[connection signal="about_to_show" from="." to="." method="_on_PopupDialog_about_to_show"]
+[connection signal="popup_hide" from="." to="." method="_on_PopupDialog_popup_hide"]
+[connection signal="pressed" from="Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_No_pressed"]

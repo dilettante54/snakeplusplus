@@ -1,0 +1,272 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://fonts/Baloo2-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/DynamicFont_Luckiest18.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/UI.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.180392, 0.180392, 0.180392, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+hinting = 0
+font_path = "res://fonts/LuckiestGuy-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+outline_size = 2
+outline_color = Color( 0.266667, 0, 0.392157, 1 )
+use_filter = true
+font_data = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ 1, 50 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 1.7 ),
+"transitions": PoolRealArray( 0.5, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.533333, 0.772549, 0.105882, 0 ), Color( 0.533333, 0.772549, 0.105882, 1 ), Color( 0.533333, 0.772549, 0.105882, 1 ), Color( 0.533333, 0.772549, 0.105882, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.180392, 0.619608, 0.196078, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.2, 0.231373, 0.211765, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.2, 0.231373, 0.211765, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/fg:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.180392, 0.180392, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/fg:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.6, 0.321569, 1 ), Color( 0.619608, 0.180392, 0.180392, 1 ) ]
+}
+
+[node name="UI" type="Control"]
+margin_right = 1023.0
+margin_bottom = 24.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.172549, 0.172549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -39.5
+margin_top = 236.0
+margin_right = 39.5
+margin_bottom = 286.0
+custom_styles/normal = SubResource( 1 )
+text = "Game Over!
+r = restart
+esc = quit"
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+margin_left = 4.08112
+margin_top = 25.8472
+margin_right = 164.081
+margin_bottom = 429.847
+text = "Debug Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveList" type="Label" parent="."]
+visible = false
+margin_left = 890.0
+margin_top = 84.0001
+margin_right = 1022.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 2 )
+text = "Moves"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Countdown" type="Label" parent="."]
+visible = false
+margin_left = 860.015
+margin_top = 31.2902
+margin_right = 1017.02
+margin_bottom = 55.2902
+text = "Time / Food / Obstacles "
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickupNotifier" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -292.661
+margin_top = 41.3241
+margin_right = 291.339
+margin_bottom = 117.324
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.533333, 0.772549, 0.105882, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickupNotification" type="AnimationPlayer" parent="PickupNotifier"]
+anims/Notify = SubResource( 5 )
+
+[node name="TimerBar" type="ProgressBar" parent="."]
+margin_left = 384.226
+margin_top = 4.0
+margin_right = 640.226
+margin_bottom = 20.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+max_value = 45.0
+value = 22.5
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="TimerBar"]
+repeat = true
+playback/repeat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TimerBar"]
+anims/time_critical = SubResource( 8 )
+anims/timer_turn_red = SubResource( 9 )
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -12.0
+margin_right = -6.0
+margin_bottom = 12.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Score: 0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -188.926
+margin_top = -12.0
+margin_right = -104.926
+margin_bottom = 12.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Level: 1"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highscore" type="Label" parent="."]
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_right = 117.0
+custom_fonts/font = ExtResource( 2 )
+text = "Highscore: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+anchor_bottom = 1.0
+margin_left = 336.387
+margin_right = 385.387
+custom_fonts/font = ExtResource( 2 )
+text = "Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}

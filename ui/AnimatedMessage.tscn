@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/AnimatedMessage.gd" type="Script" id=1]
+
+[node name="Message" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+fill_color = Color( 0.709804, 1, 0, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Text" type="Node2D" parent="."]
